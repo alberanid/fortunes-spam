@@ -6,7 +6,7 @@ It's intended to be used with the [fortune](http://fortunes.cat-v.org/) unix pro
 
 ## Notice
 
-The text of offensive fortunes is obfuscated using rot13.
+The text of fortunes is obfuscated using rot13, since they are mostly offensive.
 
 ## INSTALL
 
