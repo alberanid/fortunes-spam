@@ -4,14 +4,27 @@ Fortune cookies taken from subjects and bodies of funny or strange SPAM messages
 
 It's intended to be used with the [fortune](http://fortunes.cat-v.org/) unix program.
 
-
 ## Notice
 
 The text of offensive fortunes is obfuscated using rot13.
 
+## INSTALL
+
+Copy the files 'spam-o' and 'spam-o.dat' in one of the following directory:
+ * /usr/local/share/games/fortunes/off/
+ * /usr/share/games/fortunes/off/
+ * /usr/local/share/games/fortunes/
+ * /usr/share/games/fortunes/
+
+or wherever your unix puts fortune files.
+In Linux, if you put the files in an "/off/"(ensive) directory the fortune program will read the files only when the "-o" or "-a" option is used (for details: man fortune).
+
+If you're interested in Italian spam, you've to copy also the files 'spam-ita-o' and 'spam-ita-o.dat'.
+The charset of both files (spam-o and spam-ita-o) is UTF-8; convert it to suite your system, if needed.
+
 # License
 
-Copyright ~2008-2017 Davide Alberani <da@erlug.linux.it>
+Copyright 2003-2017 Davide Alberani <da@erlug.linux.it>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
