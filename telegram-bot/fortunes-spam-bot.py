@@ -37,8 +37,7 @@ def getSpam(section):
 
 def serve(section, bot, update):
     spam = getSpam(section)
-    logging.info('%s wants some spam' % update.message.from_user.name)
-    logging.info('served: %s' % spam)
+    logging.info('%s wants some spam; serving:\n%s' % (update.message.from_user.name, spam))
     update.message.reply_text(spam)
 
 
@@ -50,12 +49,18 @@ def it(bot, update):
     return serve('spam-ita-o', bot, update)
 
 
+def about(bot, update):
+    logging.info('%s required more info' % update.message.from_user.name)
+    update.message.reply_text('See https://github.com/alberanid/fortunes-spam')
+
+
 if __name__ == '__main__':
-    if not 'SPAMBOT_TOKEN' in os.environ:
+    if 'SPAMBOT_TOKEN' not in os.environ:
         print("Please specify the Telegram token in the SPAMBOT_TOKEN environment variable")
     logging.info('start serving delicious spam')
     updater = Updater(os.environ['SPAMBOT_TOKEN'])
     updater.dispatcher.add_handler(CommandHandler('en', en))
     updater.dispatcher.add_handler(CommandHandler('it', it))
+    updater.dispatcher.add_handler(CommandHandler('about', about))
     updater.start_polling()
     updater.idle()
