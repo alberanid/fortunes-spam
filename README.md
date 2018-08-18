@@ -26,6 +26,10 @@ The charset of both files (spam-o and spam-ita-o) is UTF-8; convert it to suite 
 
 If you add your own fortunes, you can also update the *.dat* files running **make** (it requires the *strfile* command, usually found in the *fortune-mod* package)
 
+## Telegram bot
+
+You can use the content of the *telegram-bot* directory to create your own Telegram bot; don't forget to run it specifying the **SPAMBOT_TOKEN** environment variable.
+
 # License
 
 Copyright 2003-2018 Davide Alberani <da@erlug.linux.it>
