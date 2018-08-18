@@ -28,6 +28,8 @@ If you add your own fortunes, you can also update the *.dat* files running **mak
 
 ## Telegram bot
 
+A demo bot can be found here: https://t.me/FortunesSpamBot
+
 You can use the content of the *telegram-bot* directory to create your own Telegram bot; don't forget to run it specifying the **SPAMBOT_TOKEN** environment variable.
 
 # License
