@@ -32,6 +32,13 @@ A demo bot can be found here: https://t.me/FortunesSpamBot
 
 You can use the content of the *telegram-bot* directory to create your own Telegram bot; don't forget to run it specifying the **SPAMBOT_TOKEN** environment variable.
 
+## Mastodon bot
+
+A demo bot can be found at [@fortunes_spam@botsin.space](https://botsin.space/@fortunes_spam)
+
+You can use the content of the *mastodon-bot* directory to create your own Mastodon bot; don't forget to run it specifying the **SPAMBOT_TOKEN** environment variable.
+
+
 # License
 
 Copyright 2003-2018 Davide Alberani <da@erlug.linux.it>
