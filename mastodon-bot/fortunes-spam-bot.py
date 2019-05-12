@@ -30,7 +30,7 @@ def serve(token):
     spam = getSpam()
     print('serving:\n%s' % spam)
     mastodon = Mastodon(access_token=token, api_base_url=API_URL)
-    mastodon.status_post(spam)
+    mastodon.status_post(spam, sensitive=True)
 
 
 if __name__ == '__main__':
