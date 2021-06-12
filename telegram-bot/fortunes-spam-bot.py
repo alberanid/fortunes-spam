@@ -4,7 +4,7 @@
 Build it with: docker build -t fortunes-spam-bot .
 Run it with something like: docker run -ti --rm -e SPAMBOT_TOKEN=your-telegram-token fortunes-spam-bot
 
-Copyright 2018 Davide Alberani <da@erlug.linux.it> Apache 2.0 license
+Copyright 2018-2021 Davide Alberani <da@erlug.linux.it> Apache 2.0 license
 """
 
 import os
@@ -17,8 +17,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
+EXTERNAL_VOL = '/fortunes'
 
 def getSpam(section):
+    extPath = os.path.join(EXTERNAL_VOL, section)
+    if os.path.isfile(extPath):
+        section = extPath
     cmd = ['fortune', '-o', section]
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
@@ -35,22 +39,22 @@ def getSpam(section):
     return stdout
 
 
-def serve(section, bot, update):
+def serve(section, update, context):
     spam = getSpam(section)
-    logging.info('%s wants some spam; serving:\n%s' % (update.message.from_user.name, spam))
+    logging.info('%s wants some spam; serving:\n%s' % (update.effective_user.username, spam))
     update.message.reply_text(spam)
 
 
-def en(bot, update):
-    return serve('spam-o', bot, update)
+def en(update, context):
+    return serve('spam-o', update, context)
 
 
-def it(bot, update):
-    return serve('spam-ita-o', bot, update)
+def it(update, context):
+    return serve('spam-ita-o', update, context)
 
 
-def about(bot, update):
-    logging.info('%s required more info' % update.message.from_user.name)
+def about(update, context):
+    logging.info('%s required more info' % update.effective_user.username)
     update.message.reply_text('See https://github.com/alberanid/fortunes-spam')
 
 

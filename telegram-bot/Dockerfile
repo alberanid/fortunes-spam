@@ -9,6 +9,8 @@ RUN \
 	git clone https://github.com/alberanid/fortunes-spam.git
 COPY fortunes-spam-bot.py /fortunes-spam
 
+VOLUME /fortunes
+
 WORKDIR /fortunes-spam
 
 ENTRYPOINT ["python3", "fortunes-spam-bot.py"]

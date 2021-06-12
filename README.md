@@ -41,7 +41,7 @@ You can use the content of the *mastodon-bot* directory to create your own Masto
 
 # License
 
-Copyright 2003-2018 Davide Alberani <da@erlug.linux.it>
+Copyright 2003-2021 Davide Alberani <da@erlug.linux.it>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
