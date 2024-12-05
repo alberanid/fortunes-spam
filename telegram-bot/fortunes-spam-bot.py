@@ -4,7 +4,7 @@
 Build it with: docker build -t fortunes-spam-bot .
 Run it with something like: docker run -ti --rm -e SPAMBOT_TOKEN=your-telegram-token fortunes-spam-bot
 
-Copyright 2018-2021 Davide Alberani <da@erlug.linux.it> Apache 2.0 license
+Copyright 2018-2021 Davide Alberani <da@mimante.net> Apache 2.0 license
 """
 
 import os
