@@ -6,9 +6,6 @@ import sys
 import subprocess
 from mastodon import Mastodon
 
-API_URL = 'https://botsin.space/'
-
-
 def getSpam(sections=('spam-o', 'spam-ita-o')):
     cmd = ['fortune', '-o', *sections]
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -26,10 +23,10 @@ def getSpam(sections=('spam-o', 'spam-ita-o')):
     return stdout
 
 
-def serve(token):
+def serve(api_url, token):
     spam = getSpam()
     print('serving:\n%s' % spam)
-    mastodon = Mastodon(access_token=token, api_base_url=API_URL)
+    mastodon = Mastodon(access_token=token, api_base_url=api_url)
     mastodon.status_post(spam, sensitive=True, spoiler_text='NSFW')
 
 
@@ -37,4 +34,7 @@ if __name__ == '__main__':
     if 'SPAMBOT_TOKEN' not in os.environ:
         print("Please specify the Mastodon token in the SPAMBOT_TOKEN environment variable")
         sys.exit(1)
-    serve(token=os.environ['SPAMBOT_TOKEN'])
+    if 'API_URL' not in os.environ:
+        print("Please specify the Mastodon server in the API_URL environment variable")
+        sys.exit(1)
+    serve(api_url=os.environ['API_URL'], token=os.environ['SPAMBOT_TOKEN'])
